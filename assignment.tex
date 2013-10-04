@@ -141,7 +141,9 @@
 
 \newcommand{\zshscreenshot}[3]{
     \captionof{figure}{#1}
-    \centering \includegraphics[scale=#2]{#3}
+    \begin{center}
+        \includegraphics[scale=#2]{#3}
+    \end{center}
 }
 
 \newcommand{\homeworkQuestion}[1]{\fontsize{10}{10}\textbf{#1}}
