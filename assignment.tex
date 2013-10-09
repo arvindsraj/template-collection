@@ -139,11 +139,12 @@
     \lstinputlisting[caption=#1]{../src/#2.h}
 }
 
-\newcommand{\screenshot}[3]{
+\newcommand{\screenshot}[4]{
     \captionof{figure}{#1}
     \begin{center}
         \includegraphics[scale=#2]{#3}
     \end{center}
+    \label{#4}
 }
 
 \newcommand{\homeworkQuestion}[1]{\fontsize{10}{10}\textbf{#1}}
