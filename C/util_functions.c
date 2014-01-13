@@ -10,6 +10,28 @@ char read_line(FILE *fh, char **buf) {
     return read_until(fh, buf, '\n');
 }
 
+int read_lines(FILE *fh, char ***buf) {
+    char chr, **temp;
+    int i = 0, count_read = 0;
+    
+    while(1) {
+        temp = (char **)realloc(temp, sizeof(char *)*(count_read + 10));
+        for(i = 0; i < 10; i++) {
+            chr = read_line(fh, &temp[i + count_read]);
+            if(chr == EOF) {
+                goto done;
+            }
+        }
+        count_read += i;
+    }
+
+done:
+    count_read += i;
+    *buf = (char **)malloc(sizeof(char *)*count_read);
+    *buf = temp;
+    return count_read;
+}
+
 char read_until(FILE *fh, char **buf, char last_char) {
     char curr_char, *temp;
     int count_of_chars_read = 0, counter = 0;
@@ -31,7 +53,7 @@ char read_until(FILE *fh, char **buf, char last_char) {
 done:
     count_of_chars_read += counter;
     *buf = (char *)malloc(strlen(temp) + 1);
-    strncpy(*buf, temp, strlen(temp));
+    strncpy(*buf, temp, (strlen(temp) + 1));
     free(temp);
     return curr_char;
 }
