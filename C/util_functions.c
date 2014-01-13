@@ -11,7 +11,7 @@ char read_line(FILE *fh, char **buf) {
 }
 
 int read_lines(FILE *fh, char ***buf) {
-    char chr, **temp;
+    char chr, **temp=NULL;
     int i = 0, count_read = 0;
     
     while(1) {
