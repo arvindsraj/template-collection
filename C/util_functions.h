@@ -16,3 +16,6 @@ int read_lines(FILE *fh, char ***buf);
 
 // Reads until last_char, stores in buf and returns last character read; useful to check if EOF.
 char read_until(FILE *fh, char **buf, char last_char);
+
+// Split a string based on a character. Return pointer to all components; store number of components in last argument.
+char** split(char *, char, int *);

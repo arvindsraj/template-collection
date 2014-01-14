@@ -57,3 +57,26 @@ done:
     free(temp);
     return curr_char;
 }
+
+char** split(char *str, char split_char, int *comp) {
+    char *temp_str=NULL;
+    char **temp = NULL;
+    int components = 0, counter = 0;
+    int length;
+    length = strlen(str);
+    temp_str = malloc(length);
+    strncpy(temp_str, str, length);
+    for(counter = 0; counter < length; counter++) {
+        if(temp_str[counter] == split_char) {
+            components++;
+        }
+    }
+    components++;
+    temp = (char **)malloc(components * sizeof(char *));
+    temp[0] = strtok(temp_str, " ");
+    for(counter = 1; counter < components; counter++) {
+        temp[counter] = strtok(NULL, " ");
+    }
+    *comp = components;
+    return temp;
+}
