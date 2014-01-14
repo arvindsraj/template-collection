@@ -8,6 +8,9 @@
 #include<stdlib.h>
 #include<string.h>
 
+// Free dynamically allocated memory
+void free_string_array(char **, int);
+
 // Reads until newline('\n') and stores in buf. Uses read_until internally.
 char read_line(FILE *fh, char **buf);
 

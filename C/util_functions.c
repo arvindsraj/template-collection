@@ -6,6 +6,17 @@
 
 #include "util_functions.h"
 
+void free_string_array(char **string, int size) {
+    int i;
+    for(i = 0; i < size; i++) {
+        free(string[i]);
+        string[i] = NULL;
+    }
+    free(string);
+    string = NULL;
+    return;
+}
+
 char read_line(FILE *fh, char **buf) {
     return read_until(fh, buf, '\n');
 }
