@@ -21,4 +21,5 @@ int read_lines(FILE *fh, char ***buf);
 char read_until(FILE *fh, char **buf, char last_char);
 
 // Split a string based on a character. Return pointer to all components; store number of components in last argument.
+/* TODO: Doesn't work as advertised always */
 char** split(char *, char, int *);
