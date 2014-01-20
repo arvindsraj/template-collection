@@ -84,9 +84,9 @@ char** split(char *str, char split_char, int *comp) {
     }
     components++;
     temp = (char **)malloc(components * sizeof(char *));
-    temp[0] = strtok(temp_str, " ");
+    temp[0] = strtok(temp_str, &split_char);
     for(counter = 1; counter < components; counter++) {
-        temp[counter] = strtok(NULL, " ");
+        temp[counter] = strtok(NULL, &split_char);
     }
     *comp = components;
     return temp;
